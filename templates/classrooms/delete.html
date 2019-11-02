@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Delete{% endblock %}
+
+{% block content %}
+<div class="container wrapper-25">
+    <div class="jumbotron border-15">
+        <h1 class="text-center title">DELETE</h1>
+        <div class="row">
+            <div class="col-md-2 d-none d-md-flex">
+            </div><!-- /end col -->
+            <div class="col-md-8">
+                <form class="container-form" method="POST">
+                    {% csrf_token %}
+                    <h2 class="text-muted text-center">Do you want to delete <span class="text-danger" >{{ object.name }}</span> ?</h2>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="pt-5">
+                            <button class="btn btn-danger badge-pill text-btn">Delete</button>
+                        </div>
+                        <a class="btn btn-secondary badge-pill mt-5 text-btn ml-3" href="{% url 'classrooms' %}">Cancel</a>
+                    </div>
+                </form>
+            </div><!-- /end col -->
+            <div class="col-md-2 d-none d-md-flex">
+            </div><!-- /end col -->
+        </div><!-- /end row -->
+    </div><!-- /end jumbotron -->
+</div><!-- /end container -->
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}List{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <div class="container">
+        <table id="users" class="table table-striped table-hover bg-gray" data-server-side="true" data-ajax="http://127.0.0.1:8000/users/api/?format=datatables">
+            <thead>
+                <tr class="bg-info text-white">
+                    <td data-data="username">Usuario</td>
+                    <td data-data="first_name">Nombre</td>
+                    <td data-data="last_name">Apellido</td>
+                    <td data-data="email">Correo</td>
+                    <td data-data="address">Direccion</td>
+                    <td data-data="telephone">Telefono</td>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+{% else %}
+    
+{% endif %}
+{% endblock %}
+{% load staticfiles %}

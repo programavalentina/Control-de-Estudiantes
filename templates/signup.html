@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}SignUp{% endblock %}
+
+{% block content %}
+
+<!--
+#MAIN ================================== -->
+<main>
+    <div class="container wrapper-25">
+        <div class="jumbotron border-15">
+            <h1 class="text-center title">WELCOME</h1>
+            <div class="row">
+                <div class="col-md-6 d-none d-md-flex align-items-center">
+                    <div class="row">
+                        <div class="col-12">
+                            <img class="bg-img hover-img" src="{% static 'images/img-01.png' %}" alt="IMG"/>
+                        </div>
+                        <div class="col-12 wrapper-100">
+                            <img class="bg-img hover-img" src="{% static 'images/img-01.png' %}" alt="IMG"/>
+                        </div>
+                    </div>
+                </div><!-- /end col -->
+                <div class="col-md-6">
+                    <form class="container-form" method="POST">
+                        <h1 class="text-center pb-5 subtitle">SignUp</h1>
+                        {% csrf_token %}
+                        {% for field in form %}
+                            {{ field.errors }}
+                            {{ field.label_tag }}
+                            {{ field }}
+                        {% endfor %}
+                        <div class="container-btn">
+                            <button class="btn btn-primary badge-pill mb-4 text-btn">SignUp</button>
+                        </div>
+    
+                        <div class="text-center ">
+                            <a class="signup" href="{% url 'login' %}">
+                                <p> 
+                                    LogIn
+                                    <i class="fas fa-long-arrow-alt-right"></i>
+                                </p>
+                            </a>
+                        </div><!-- /end center -->
+                    </form><!-- /end form -->
+                </div><!-- /end col -->
+            </div><!-- /end body -->
+        </div><!-- /end row -->
+    </div><!-- /end jumbotron -->
+</main><!-- /end main -->
+{% endblock %}
